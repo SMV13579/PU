@@ -1,0 +1,57 @@
+#include <iostream>
+#include<conio.h>
+#include<math.h>
+
+using namespace std;
+    class q 
+    {
+        private:
+         double a,b,c,r1,r2;
+        public:
+         void getd();
+         void roots();
+         void putd();
+    };
+
+  void q::getd()
+  {
+      cout<<"Enter co-efficients : ";
+      cin>>a>>b>>c;
+  }
+  void q::roots()
+  {
+      double d=b*b-4*a*c;
+        if(d==0)
+        {
+            cout<<"Roots are equal\n";
+            r1=-b/(2*a);
+            r2=r1;
+        }
+        else if(d>0)
+        {
+            cout<<"Roots are positive and different :\n";
+            r1=(-b+sqrt(d))/(2*a);
+            r2=(-b-sqrt(d))/(2*a);
+        }
+        else
+        {
+            cout<<"roots are imaginary";
+
+        }
+  }
+  void q::putd()
+  {
+      cout<<"First root = "<<r1;
+      cout<<"\nSecond root = "<<r2;
+  }
+  
+int main()
+{
+    q x;
+    clrscr();
+    x.getd();
+    x.roots();
+    x.putd();
+
+    return 0;
+}
