@@ -1,0 +1,88 @@
+#include <iostream>
+#include<conio.h>
+#include<ctype.h>
+#define MAX 5
+using namespace std;
+
+    class stack1
+    {
+       private:
+        int A[MAX],top;
+       public:
+        stack1()
+        {
+            top=-1;
+        }
+        void push(int itm);
+        void print();
+    };
+
+    void stack1::push(int itm)
+    {
+        if(top==MAX-1)
+        {
+            cout<<"\nStack is FULL\n";
+            return;
+        }
+        top++;
+        A[top]=itm;
+        cout<<itm<<" is pushed. ";
+    }
+     void stack1::print()
+     {
+         if(top!=-1)
+         {
+             cout<<"Stack contains ";
+                for(int i=0;i<=top;i++)
+                    cout<<"   "<<A[i];
+                cout<<endl;
+         }
+         else
+         cout<<"Stack is empty";
+     }
+    
+int main()
+{
+    stack1 v;
+    int c,in;
+    char k;
+    clrscr();
+        while(1)
+        {
+            re:
+                cout<<"\n\n\n1. Push\n2. Print\n3. Exit\n";
+                cout<<"Enter your choice : ";
+                cin>>c;
+                    switch(c)
+                    {
+                        case 1: {
+                                    cout<<"Enter the item : ";
+                                    cin>>in;
+                                    v.push(in);
+                                    break;
+                                }
+                        case 2: {
+                                    v.print();
+                                    break;
+                                }
+                        case 3: {
+                                    cout<<"Process terminated ";
+                                    bye: exit(0);
+                                }
+                        default:{
+                                    cout<<"Invalid input. Would you like to try again? (Y/N)";
+                                    cin>>k;
+                                        if(toupper(k)=='Y')
+                                        {
+                                            goto re;
+                                        }
+                                        else
+                                        {
+                                            goto bye;
+                                        }
+                                }        
+                    }
+        }
+
+    return 0;
+}
