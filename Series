@@ -1,0 +1,39 @@
+#include <iostream>
+#include<conio.h>
+using namespace std;
+    class copy1
+    {
+        int var, sum, term;
+        public:
+          double cal();
+          copy1(int temp, int x)
+          {
+              var=temp;
+              term=x;
+          }
+    };
+    double copy1::cal()
+    {
+        int p;
+        sum=1;
+        p=term;
+         
+         for(int i=1;i<=var;i++)
+         {
+             sum=sum+p;
+             p=p*term;
+         }
+      return sum;
+    }
+
+int main()
+{
+    int n,t;
+    clrscr();
+    cout<<"Enter the base and power : ";
+    cin>>t>>n;
+    copy1 obj(n,t);
+    copy1 cpy=obj;
+    cout<<"Sum of the series is "<<obj.cal();
+    return 0;
+}
